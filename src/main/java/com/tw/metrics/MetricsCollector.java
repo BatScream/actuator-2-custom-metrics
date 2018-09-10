@@ -30,16 +30,16 @@ public class MetricsCollector {
     @Autowired
     private MeterRegistry registry;
 
-    public Map<String, Object> collect() {
+    public Map<String, Double> collect() {
         List<Meter> meters = registry.getMeters();
         return meters.stream().map(meter -> {
             return getEntryForMeter(meter);
         }).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
     }
 
-    private Entry<String, Object> getEntryForMeter(@NonNull Meter meter) {
+    private Entry<String, Double> getEntryForMeter(@NonNull Meter meter) {
         String key = getKey(meter.getId());
-        Object value = getMeasurement(meter);
+        Double value = getMeasurement(meter);
         return Maps.immutableEntry(key, value);
     }
 
@@ -52,7 +52,7 @@ public class MetricsCollector {
                 .toString();
     }
 
-    private Object getMeasurement(@NonNull Meter meter) {
+    private Double getMeasurement(@NonNull Meter meter) {
         return StreamSupport.stream(meter.measure().spliterator(), false)
                 .filter(measurement -> measurement.getStatistic() == Statistic.VALUE).findFirst()
                 .map((measurement) -> measurement.getValue()).orElse(0D);

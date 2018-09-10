@@ -8,6 +8,10 @@ import org.springframework.context.annotation.Configuration;
 
 import com.tw.metrics.MetricsCollector;
 
+/**
+ * @author clement
+ *
+ */
 @Configuration
 @AutoConfigureAfter(MetricsEndpointAutoConfiguration.class)
 public class MetricsCollectorAutoConfiguration {

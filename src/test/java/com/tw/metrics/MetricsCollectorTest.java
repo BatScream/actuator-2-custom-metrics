@@ -9,6 +9,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+/**
+ * @author clement
+ *
+ */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MetricsCollectorTest {
@@ -16,12 +20,9 @@ public class MetricsCollectorTest {
 	@Autowired
 	private MetricsCollector collector;
 
-
 	@Test
 	public void whenCollectIsInvokedItShouldReturnAMapContainingExpectedJVMMemoryMetrics() {
-
-		assertThat(collector.collect().keySet(), hasItems("jvm.memory.max", "jvm.memory.max.heap"));
-
+		assertThat(collector.collect().keySet(), hasItems("jvm.memory.max"));
 	}
-
+	
 }

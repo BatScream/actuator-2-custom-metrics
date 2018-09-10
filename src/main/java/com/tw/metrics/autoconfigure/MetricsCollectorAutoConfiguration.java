@@ -1,3 +1,4 @@
+
 package com.tw.metrics.autoconfigure;
 
 import org.springframework.boot.actuate.autoconfigure.metrics.MetricsEndpointAutoConfiguration;
@@ -11,9 +12,9 @@ import com.tw.metrics.MetricsCollector;
 @AutoConfigureAfter(MetricsEndpointAutoConfiguration.class)
 public class MetricsCollectorAutoConfiguration {
 
-	@Bean
-	public MetricsCollector metricsCollector() {
-		return new MetricsCollector();
-	}
+    @Bean
+    public MetricsCollector metricsCollector() {
+        return new MetricsCollector();
+    }
 
 }

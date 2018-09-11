@@ -9,8 +9,6 @@ import java.util.SortedMap;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.google.common.collect.Maps;
 
 import io.micrometer.core.instrument.Meter;
@@ -30,10 +28,7 @@ public class MetricsCollector {
     private static final String LEAF_SPACE_FORMATTER = "_";
     private static final String SPACE_REGEX = "\\s";
 
-    @Autowired
-    private MeterRegistry registry;
-
-    public String collect() {
+    public String collect(MeterRegistry registry) {
         List<Meter> meters = registry.getMeters();
         return this.convertToJsonString(meters.stream().map(meter -> {
             return getEntryForMeter(meter);

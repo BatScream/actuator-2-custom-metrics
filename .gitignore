@@ -3,6 +3,7 @@
 mvnw.cmd
 mvnw
 .mvn/
+formatter.xml
 
 ### STS ###
 .apt_generated

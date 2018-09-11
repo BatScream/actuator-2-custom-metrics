@@ -16,8 +16,8 @@ import io.micrometer.core.instrument.composite.CompositeMeterRegistry;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(
-        classes = MetricsCollectorApplicationTest.TestApplication.class)
-public class MetricsCollectorApplicationTest {
+        classes = MetricsCollectorContextLoadTest.TestApplication.class)
+public class MetricsCollectorContextLoadTest {
 
     @Autowired
     private JsonMetricsCollector collector;

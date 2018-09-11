@@ -28,7 +28,7 @@ public class MetricsCollector {
     private static final String LEAF_SPACE_FORMATTER = "_";
     private static final String SPACE_REGEX = "\\s";
 
-    public String collect(MeterRegistry registry) {
+    public String collect(@NonNull MeterRegistry registry) {
         List<Meter> meters = registry.getMeters();
         return this.convertToJsonString(meters.stream().map(meter -> {
             return getEntryForMeter(meter);
@@ -55,7 +55,7 @@ public class MetricsCollector {
                 .map((measurement) -> measurement.getValue()).orElse(0D);
     }
 
-    private String convertToJsonString(Map<String, Double> metricsMap) {
+    private String convertToJsonString(@NonNull Map<String, Double> metricsMap) {
         Properties properties = new Properties();
         properties.putAll(metricsMap);
         return new PropertiesToJsonConverter().parseToJson(properties);

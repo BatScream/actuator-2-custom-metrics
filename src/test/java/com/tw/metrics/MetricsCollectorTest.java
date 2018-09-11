@@ -35,11 +35,11 @@ public class MetricsCollectorTest {
     public void whenCollectIsInvokedItShouldReturnAMapContainingExpectedJVMMemoryMetrics() {
 
         assertThat(collector.collect(buildTestMeterWithMaxHeapMemoryMeter()),
-                equalTo(buildeExpectedJsonForMaxHeapMemory()));
+                equalTo(buildExpectedJsonForMaxHeapMemory()));
 
     }
 
-    private String buildeExpectedJsonForMaxHeapMemory() {
+    private String buildExpectedJsonForMaxHeapMemory() {
 
         Properties properties = new Properties();
         properties.put("jmx.memory.max.heap", 0.0);

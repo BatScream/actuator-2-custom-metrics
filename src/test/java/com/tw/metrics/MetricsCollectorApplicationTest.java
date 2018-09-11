@@ -17,13 +17,14 @@ public class MetricsCollectorApplicationTest {
 
     @Autowired
     private MetricsCollector collector;
-    
+
     @Autowired
     private MeterRegistry meterRegistry;
 
     @Test
     public void ensureThatTheMetricsCollectorBeanIsAvailableInTheContext() {
         assertNotNull(collector);
+        assertNotNull(meterRegistry);
         assertNotNull(collector.collect(meterRegistry));
     }
 

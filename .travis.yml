@@ -1,4 +1,14 @@
 language: java
 before_deploy:
-  - mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
-  - export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep -v '\[')
+- mvn help:evaluate -N -Dexpression=project.version|grep -v '\['
+- export project_version=$(mvn help:evaluate -N -Dexpression=project.version|grep
+  -v '\[')
+deploy:
+  provider: releases
+  api_key:
+    secure: CC1q2EgH9yvpo6q2GwrIEvTUZJXHWsIf0QnUaBRdDQpRQI5/TAyP61aFf6hSvQsuTwkiPMR0scWwDRv0HZ7qhm19d+xLNSgRLJE8Slzc+Ze/OeJgoBtVLbiDeOrmCoZd4NuoTPlxNK4bk9j88mKk7jxlloCZnR3I3s6Fev6q2bR/3U6vqNFviox3VTampOKbyqwo58C6pgUAK9oFfLIu4Ho/yi4RydzG5Z9wfk8lrA360oGLO7Fah6PpsoNP+V72X0iUTAzbO6/oJgMUPdhOkCqznMG3GtEyXIrRK2k160pk360wk2tTZuoDLQ+Knpz1Ybxfw7thxe+hLHqsuP8T1Cuyi5oGxBIW3luTxWP9lBPCTPMn99oZcFoJT1fevDdbdaBM8C7qeLRp21ZQSK0JJUehJk2SsSBW/5K/hkdmgcgKogXE9ssgghIpRIHVOIZrvkN9kjk33dC8HoLM4/0TeVBv3EYQBmJz2f3wrlEdLnArBDZu4V0dEXhHj1yWVusnqYMLt1YAyNq6YQHBhRXB1nSfpqZveV4EePGTR+5+lX4+EylrayfqVNH30Y+zKcjzI7lZBroSDLATqR2hwHSPDC93ZvuszwF0Gb4VZZ4gxZPcizYLgDgho1hizRYtJMiy1iBhtzD3nZFJUZ/lqYWjTmjF1J5auz2z3sloQb0Re5M=
+  file: actuator-2-custom-metrics/target/actuator-metrics-collector-$project_version.jar
+  on:
+    repo: BatScream/actuator-2-custom-metrics
+  skip_cleanup: true
+  name: $project_version

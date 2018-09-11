@@ -1,5 +1,5 @@
 
-package com.tw.metrics;
+package com.tw.metrics.collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
@@ -9,6 +9,8 @@ import java.util.Properties;
 
 import org.junit.Before;
 import org.junit.Test;
+
+import com.tw.metrics.collectors.JsonMetricsCollector;
 
 import io.micrometer.core.instrument.Measurement;
 import io.micrometer.core.instrument.Meter;
@@ -22,13 +24,13 @@ import pl.jalokim.propertiestojson.util.PropertiesToJsonConverter;
  * @author clement
  *
  */
-public class MetricsCollectorTest {
+public class JsonMetricsCollectorTest {
 
-    private MetricsCollector collector = null;
+    private JsonMetricsCollector collector = null;
 
     @Before
     public void setup() {
-        collector = new MetricsCollector();
+        collector = new JsonMetricsCollector();
     }
 
     @Test

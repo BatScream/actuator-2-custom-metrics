@@ -1,5 +1,5 @@
 
-package com.tw.metrics;
+package com.tw.metrics.collectors;
 
 import java.util.List;
 import java.util.Map;
@@ -22,10 +22,10 @@ import pl.jalokim.propertiestojson.util.PropertiesToJsonConverter;
  * @author clement
  *
  */
-public class MetricsCollector {
+public class JsonMetricsCollector {
 
     private static final String DELIMITER = ".";
-    private static final String LEAF_SPACE_FORMATTER = "_";
+    private static final String LEAF_VALUE_DELIMTER = "_";
     private static final String SPACE_REGEX = "\\s";
 
     public String collect(@NonNull MeterRegistry registry) {
@@ -44,7 +44,7 @@ public class MetricsCollector {
     private String getKey(@NonNull Id meterId) {
         return new StringBuilder(meterId.getName()).append(DELIMITER)
                 .append(meterId.getTags().stream()
-                        .map(tag -> tag.getValue().replaceAll(SPACE_REGEX, LEAF_SPACE_FORMATTER))
+                        .map(tag -> tag.getValue().replaceAll(SPACE_REGEX, LEAF_VALUE_DELIMTER))
                         .collect(Collectors.joining(DELIMITER)))
                 .toString();
     }

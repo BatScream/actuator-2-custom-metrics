@@ -4,6 +4,8 @@ package com.tw.metrics;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Properties;
+import java.util.SortedMap;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
@@ -16,6 +18,7 @@ import io.micrometer.core.instrument.Meter.Id;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Statistic;
 import lombok.NonNull;
+import pl.jalokim.propertiestojson.util.PropertiesToJsonConverter;
 
 /**
  * @author clement
@@ -30,11 +33,11 @@ public class MetricsCollector {
     @Autowired
     private MeterRegistry registry;
 
-    public Map<String, Double> collect() {
+    public String collect() {
         List<Meter> meters = registry.getMeters();
-        return meters.stream().map(meter -> {
+        return this.convertToJsonString(meters.stream().map(meter -> {
             return getEntryForMeter(meter);
-        }).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+        }).collect(Collectors.toMap(SortedMap.Entry::getKey, SortedMap.Entry::getValue)));
     }
 
     private Entry<String, Double> getEntryForMeter(@NonNull Meter meter) {
@@ -46,8 +49,7 @@ public class MetricsCollector {
     private String getKey(@NonNull Id meterId) {
         return new StringBuilder(meterId.getName()).append(DELIMITER)
                 .append(meterId.getTags().stream()
-                        .map(tag -> tag.getKey() + DELIMITER
-                                + tag.getValue().replaceAll(SPACE_REGEX, LEAF_SPACE_FORMATTER))
+                        .map(tag -> tag.getValue().replaceAll(SPACE_REGEX, LEAF_SPACE_FORMATTER))
                         .collect(Collectors.joining(DELIMITER)))
                 .toString();
     }
@@ -56,5 +58,11 @@ public class MetricsCollector {
         return StreamSupport.stream(meter.measure().spliterator(), false)
                 .filter(measurement -> measurement.getStatistic() == Statistic.VALUE).findFirst()
                 .map((measurement) -> measurement.getValue()).orElse(0D);
+    }
+
+    private String convertToJsonString(Map<String, Double> metricsMap) {
+        Properties properties = new Properties();
+        properties.putAll(metricsMap);
+        return new PropertiesToJsonConverter().parseToJson(properties);
     }
 }

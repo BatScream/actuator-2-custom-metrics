@@ -8,9 +8,55 @@
 	<artifactId>actuator-metrics-collector</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>
-
 	<name>actuator-metrics-collector</name>
 	<description>Aggregates and Flattens Actuator 2.0 metrics </description>
+	<url>https://github.com/BatScream/actuator-2-custom-metrics</url>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<issueManagement>
+		<url>https://github.com/BatScream/actuator-2-custom-metrics/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+
+	<scm>
+		<url>https://github.com/BatScream/actuator-2-custom-metrics</url>
+		<connection>scm:git:https://github.com/BatScream/actuator-2-custom-metrics.git</connection>
+		<developerConnection>scm:git:git@github.com:BatScream/actuator-2-custom-metrics.git</developerConnection>
+	</scm>
+
+	<distributionManagement>
+		<site>
+			<id>api.wiki</id>
+			<url>https://github.com/BatScream/actuator-2-custom-metrics/wiki</url>
+		</site>
+
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+
+	</distributionManagement>
+
+	<developers>
+		<developer>
+			<email>clement.lloyd@gmail.com</email>
+			<name>Clement Lloyd P</name>
+			<url>https://github.com/BatScream</url>
+			<id>BatScream</id>
+		</developer>
+	</developers>
+
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -23,6 +69,8 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
 	</properties>
+
+
 
 	<dependencies>
 		<dependency>

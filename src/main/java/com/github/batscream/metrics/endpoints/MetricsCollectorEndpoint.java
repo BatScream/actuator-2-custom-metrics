@@ -1,10 +1,10 @@
 
-package com.tw.metrics.endpoints;
+package com.github.batscream.metrics.endpoints;
 
 import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
 import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 
-import com.tw.metrics.collectors.JsonMetricsCollector;
+import com.github.batscream.metrics.collectors.JsonMetricsCollector;
 
 import io.micrometer.core.instrument.MeterRegistry;
 

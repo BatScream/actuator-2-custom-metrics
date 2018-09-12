@@ -1,5 +1,5 @@
 
-package com.tw.metrics.collectors;
+package com.github.batscream.metrics.collectors;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -10,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.github.batscream.metrics.collectors.JsonMetricsCollector;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.composite.CompositeMeterRegistry;

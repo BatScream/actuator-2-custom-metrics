@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.tw.metrics.autoconfigure.MetricsCollectorEndPointAutoConfiguration
+com.github.batscream.metrics.autoconfigure.MetricsCollectorEndPointAutoConfiguration

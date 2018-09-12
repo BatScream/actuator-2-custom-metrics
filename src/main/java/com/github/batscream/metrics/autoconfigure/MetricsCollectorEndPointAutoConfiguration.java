@@ -1,5 +1,5 @@
 
-package com.tw.metrics.autoconfigure;
+package com.github.batscream.metrics.autoconfigure;
 
 import org.springframework.boot.actuate.autoconfigure.endpoint.condition.ConditionalOnEnabledEndpoint;
 import org.springframework.boot.actuate.autoconfigure.metrics.CompositeMeterRegistryAutoConfiguration;
@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.tw.metrics.endpoints.MetricsCollectorEndpoint;
+import com.github.batscream.metrics.endpoints.MetricsCollectorEndpoint;
 
 import io.micrometer.core.instrument.MeterRegistry;
 

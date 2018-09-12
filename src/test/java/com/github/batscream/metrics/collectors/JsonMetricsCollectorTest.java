@@ -1,5 +1,5 @@
 
-package com.tw.metrics.collectors;
+package com.github.batscream.metrics.collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
@@ -10,7 +10,7 @@ import java.util.Properties;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.tw.metrics.collectors.JsonMetricsCollector;
+import com.github.batscream.metrics.collectors.JsonMetricsCollector;
 
 import io.micrometer.core.instrument.Measurement;
 import io.micrometer.core.instrument.Meter;

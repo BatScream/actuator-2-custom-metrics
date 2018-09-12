@@ -1,5 +1,5 @@
 
-package com.tw.metrics.collectors;
+package com.github.batscream.metrics.collectors;
 
 import java.util.List;
 import java.util.Map;

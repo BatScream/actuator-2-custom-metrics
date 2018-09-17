@@ -1,6 +1,6 @@
 # actuator-2-custom-metrics
 
-Build status: [![build_status](https://travis-ci.org/BatScream/actuator-2-custom-metrics.svg?branch=master)](https://travis-ci.org/BatScream/actuator-2-custom-metrics)
+[![build_status](https://travis-ci.org/BatScream/actuator-2-custom-metrics.svg?branch=master)](https://travis-ci.org/BatScream/actuator-2-custom-metrics) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.batscream/actuator-metrics-collector/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.batscream/actuator-metrics-collector)
 
 Custom metrics for spring boot actuator 2
 
